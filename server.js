@@ -27,6 +27,6 @@ app.use((req, res, next) => {
 const mainRouter = require('./routes/api.js');
 
 // routes
-app.use('/', mainRouter);
+app.use('/api', mainRouter);
 
 app.listen(PORT, () => console.warn(`Server here! Listening on port ${PORT}!`));

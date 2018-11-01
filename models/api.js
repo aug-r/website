@@ -1,19 +1,26 @@
-const { getDB } = require('../lib/dbConnection');
+const MongoClient = require('mongodb').MongoClient;
+
+const connectURL = process.env.DB_CONNECTION;
+const connectObj = {
+  useNewUrlParser: true,
+}
 
 function getOnePost(req, res, next) {
-  getDB().then((db) => {
-    db.collection('posts')
-      .findOne({
-      }, {
-        _id: 0,
-      })
-      .then((data) => {
-        res.data = data;
-        next();
-      })
-      .catch(findErr => next(findErr));
+  const client = MongoClient(connectURL, connectObj);
+  client.connect()
+  .then((cl) => {
+    const db = cl.db();
+    return db.collection('posts');
   })
-    .catch(dbErr => next(dbErr));
+  .then(posts => {
+    return posts.findOne({}, { projection: { _id: 0 }});
+  })
+  .then(result => {
+    res.data = result;
+    client.close();
+    next();
+  })
+  .catch(err => next(err));
 }
 
 module.exports = {
