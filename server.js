@@ -24,9 +24,9 @@ app.use((req, res, next) => {
 });
 
 // import routers
-const mainRouter = require('./routes/api.js');
+const postsRouter = require('./routes/posts.js');
 
 // routes
-app.use('/api', mainRouter);
+app.use('/posts', postsRouter);
 
 app.listen(PORT, () => console.warn(`Server here! Listening on port ${PORT}!`));

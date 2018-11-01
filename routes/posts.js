@@ -1,13 +1,13 @@
 const express = require('express');
 const router  = express.Router();
 
-const testModel = require('../models/api.js');
+const postModel = require('../models/post.js');
 
 function sendAsJSON(req, res) {
   res.json(res.data);
 }
 
 router.route('/')
-  .get(testModel.getOnePost, sendAsJSON);
+  .get(postModel.getOnePost, sendAsJSON);
 
 module.exports = router;
