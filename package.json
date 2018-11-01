@@ -1,0 +1,31 @@
+{
+  "name": "aug_r_website",
+  "version": "0.0.0",
+  "description": "A website for the aug_r platform",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aug-r/website.git"
+  },
+  "keywords": [
+    "aug_r",
+    "augmented",
+    "reality",
+    "mixed",
+    "reality",
+    "website",
+    "express",
+    "node",
+    "mongodb"
+  ],
+  "author": "Joey Pinhas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aug-r/website/issues"
+  },
+  "homepage": "https://github.com/aug-r/website#readme"
+}
