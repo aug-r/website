@@ -46,7 +46,7 @@ function getMostRecentPosts(req, res, next) {
   const number = req.params.number_of_posts || req.body.number_of_posts || 10;
   res.query = {};
   res.filters = {
-    limit: paresInt(number, 10),
+    limit: parseInt(number, 10),
     sort: {
       date: -1,
     }
