@@ -43,7 +43,7 @@ function getOnePost(req, res, next) {
 
 function getMostRecentPosts(req, res, next) {
   // get the number of posts to fetch from the req, defaulting to 10
-  const number = req.params.number_of_posts || req.body.number_of_posts || 10;
+  const number = req.query.number_of_posts || req.body.number_of_posts || 10;
   res.query = {};
   res.filters = {
     limit: parseInt(number, 10),
@@ -55,7 +55,7 @@ function getMostRecentPosts(req, res, next) {
 }
 
 function getPostsByTitle(req, res, next) {
-  const title = req.params.post_title || req.body.post_title;
+  const title = req.query.post_title || req.body.post_title;
   if (!title) {
     return next(new Error('Must specify a title'));
   }
@@ -68,6 +68,7 @@ function getPostsByTitle(req, res, next) {
       date: -1,
     }
   }
+  next();
 }
 
 module.exports = {
