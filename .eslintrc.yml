@@ -10,8 +10,6 @@ plugins:
 - react
 extends:
 - airbnb
-env:
-- browser: true
 rules:
   react/jsx-no-bind:
   - error
@@ -24,3 +22,6 @@ rules:
   react/prop-types: error
   react/react-in-jsx-scope: error
   import/no-unresolved: off
+  import/no-extraneous-dependencies:
+    - error
+    - devDependencies: true
