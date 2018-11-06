@@ -32,6 +32,6 @@ const postsRouter = require('./routes/posts.js');
 app.use('/api/posts', postsRouter);
 
 // catch all for serving react bundle to unmatched paths
-app.use(history({ logger: logger }))
+app.use(history({ logger }));
 
 app.listen(PORT, () => console.warn(`Server here! Listening on port ${PORT}!`));

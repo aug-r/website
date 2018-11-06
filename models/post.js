@@ -18,19 +18,17 @@ function getPosts(req, res, next) {
   options.projection = { _id: 0 };
   const client = MongoClient(connectURL, connectObj);
   client.connect()
-  .then((cl) => {
-    const db = cl.db();
-    return db.collection('posts');
-  })
-  .then(posts => {
-    return posts.find(query, options).toArray();
-  })
-  .then(result => {
-    res.data = result.length == 1 ? result[0] : result;
-    client.close();
-    next();
-  })
-  .catch(err => next(err));
+    .then((cl) => {
+      const db = cl.db();
+      return db.collection('posts');
+    })
+    .then(posts => posts.find(query, options).toArray())
+    .then((result) => {
+      res.data = result;
+      client.close();
+      next();
+    })
+    .catch(err => next(err));
 }
 
 function getOnePost(req, res, next) {
@@ -49,9 +47,9 @@ function getMostRecentPosts(req, res, next) {
     limit: parseInt(number, 10),
     sort: {
       date: -1,
-    }
-  }
-  next();
+    },
+  };
+  return next();
 }
 
 function getPostsByTitle(req, res, next) {
@@ -61,14 +59,14 @@ function getPostsByTitle(req, res, next) {
   }
 
   res.query = {
-    title: title,
-  }
+    title,
+  };
   res.filters = {
     sort: {
       date: -1,
-    }
-  }
-  next();
+    },
+  };
+  return next();
 }
 
 module.exports = {
