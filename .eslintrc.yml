@@ -10,6 +10,8 @@ plugins:
 - react
 extends:
 - airbnb
+env:
+  browser: true
 rules:
   react/jsx-no-bind:
   - error
