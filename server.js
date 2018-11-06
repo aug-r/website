@@ -13,10 +13,6 @@ app.disable('Server');
 
 app.use(bodyParser.json());
 
-app.use(logger('dev'));
-app.use(express.static(path.join(__dirname, 'dist')));
-app.use(express.static(path.join(__dirname, 'public')));
-
 // allow CORS
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -33,5 +29,7 @@ app.use('/api/posts', postsRouter);
 
 // catch all for serving react bundle to unmatched paths
 app.use(history({ logger }));
+app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT, () => console.warn(`Server here! Listening on port ${PORT}!`));
