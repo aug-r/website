@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function PostItem(props) {
   const { post } = props || {};
   const tags = post.tags || [];
-  const tagChips = tags.map(t => <div className="chip" key={`post-item-tag-chip-${post._id}-${t}`}>{t}</div>);
+  const tagChips = tags.map(t => <div className="chip" key={`post-item-tag-chip-${post.id}-${t}`}>{t}</div>);
   return (
     <div className="card">
       <div className="card-title">

@@ -11,13 +11,9 @@ class Posts extends Component {
   }
 
   componentWillMount() {
-    console.log('here')
     fetch('/api/posts/recent')
       .then(r => r.json())
-      .then(data => {
-        console.log(data)
-        this.setState({ posts: data });
-      })
+      .then(data => this.setState({ posts: data }))
       .catch(err => console.error(err));
   }
 

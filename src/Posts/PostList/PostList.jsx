@@ -4,7 +4,7 @@ import PostItem from './PostItem';
 
 function PostList(props) {
   const { posts } = props || [];
-  const mapped = posts.map(p => <PostItem post={p} key={`post-list-item-${p._id}`} />);
+  const mapped = posts.map(p => <PostItem post={p} key={`post-list-item-${p.id}`} />);
   return (
     <div className="section">
       {mapped}
