@@ -31,3 +31,7 @@ rules:
     - error
     - allow:
       - _id
+  no-multi-spaces:
+  - error
+  - exceptions:
+      VariableDeclarator: true
