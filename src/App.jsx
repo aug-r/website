@@ -1,10 +1,15 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+
+import Posts from './Posts/Posts';
+import Post from './Posts/Post';
 
 function App() {
   return (
-    <h1>
-      Welcome to aug_r!
-    </h1>
+    <Switch>
+      <Route path="/posts" component={Posts} />
+      <Route path="/post/:id" component={Post} />
+    </Switch>
   );
 }
 
