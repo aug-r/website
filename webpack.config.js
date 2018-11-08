@@ -131,6 +131,7 @@ module.exports = {
   entry: './index.js',
   output: {
     path: BUILD_DIR,
+    publicPath: '/',
     filename: '[name].js',
   },
   module: {
