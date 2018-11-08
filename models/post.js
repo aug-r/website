@@ -69,9 +69,21 @@ function getPostsByTitle(req, res, next) {
   return next();
 }
 
+function getPostByID(req, res, next) {
+  const { id } = req.params;
+  res.query = {
+    id: parseInt(id, 10),
+  };
+  res.filters = {
+    limit: 1,
+  };
+  return next();
+}
+
 module.exports = {
   getPosts,
   getOnePost,
   getMostRecentPosts,
   getPostsByTitle,
+  getPostByID,
 };
