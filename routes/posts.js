@@ -16,4 +16,7 @@ router.route('/recent')
 router.route('/search')
   .get(postModel.getPostsByTitle, postModel.getPosts, sendAsJSON);
 
+router.route('/:id')
+  .get(postModel.getPostByID, postModel.getPosts, sendAsJSON);
+
 module.exports = router;
